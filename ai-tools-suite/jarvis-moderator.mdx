@@ -228,7 +228,7 @@ GET https://openapitest.akool.com/api/open/v3/content/analysis/infobyid?_id=662d
 |---------------|----------|----------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------|
 | code          | int      | 1000                                   | Interface returns business status code(1000:success)                                                                                                 |
 | msg           | String   | OK                                     | Interface returns status information                                                                                                                 |
-| data          | Object   | `{ status:1, _id:"", result:"" }` | video_status: the status of video：【1:queueing, 2:processing, 3:completed, 4:failed】 result:  sentiment analysis result【POSITIVE related information, NEGATIVE related information】 _id: Interface returns data |
+| data          | Object   | `{ status:1, _id:"", result:"", final_conclusion: "" }` | video_status: the status of video：【1:queueing, 2:processing, 3:completed, 4:failed】 result:  sentiment analysis result【Related information returned by the detection content】 final_conclusion: final conclusion.【Non-Compliant、Compliant、Unknown】 _id: Interface returns data |
 
 **Example**
 
@@ -313,7 +313,8 @@ print(response.text)
         "_id": "662e20b93baa7aa53169a325",
         "uid": 100002,
         "status": 3,
-        "result": "POSITIVE"
+        "result": "- violence: Presence of a person holding a handgun, which can be associated with violent content.\nResult: Non-Compliant",
+        "final_conclusion" :"Non-Compliant"   // Non-Compliant、Compliant、Unknown
     }
 }
 ```
