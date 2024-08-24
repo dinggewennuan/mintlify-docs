@@ -56,8 +56,9 @@ POST https://openapitest.akool.com/api/open/v3/content/analysis/sentiment
 |---------------|----------|------------|------------------------------------------------------------------------------|
 | content       | String   |            | url or text， when the content is a image, video, or audio, a url must be provided. When the content provided is text, it can be either text content or a url.                                                     |
 | type          | Number   |            | 1: image  2:video  3: auido  4: text                                |
-| language      | String   |        | When type=2 or 3 or 4, it is best to provide the language to ensure the accuracy of the results。 Supplying the input language in ISO-639-1 format         |
-| webhookUrl    | String   |            | Callback url address based on HTTP request.                                  |
+| language      | String   |      Optional      | When type=2 or 3 or 4, it is best to provide the language to ensure the accuracy of the results。 Supplying the input language in ISO-639-1 format         |
+| webhookUrl    | String   |      Optional      | Callback url address based on HTTP request.                                  |
+| input         | String   |     Optional       |  The user defines the content to be detected in words |
 
 <Note>We restrict image to 20MB. we currently support PNG (.png), JPEG (.jpeg and .jpg), WEBP (.webp), and non-animated GIF (.gif).</Note>
 <Note>We restrict audio to 25MB, 60minute  we currently support .flac, .mp3, .mp4, .mpeg, .mpga, .m4a, .ogg, .wav, .webm</Note>
@@ -86,7 +87,8 @@ POST https://openapitest.akool.com/api/open/v3/content/analysis/sentiment
    
     "type":1,   // 1:image 2:video 3: auido 4:text
     "content":"https://drz0f01yeq1cx.cloudfront.net/1714023431475-food.jpg",
-    "webhookUrl":"http://localhost:3004/api/v3/webhook"
+    "webhookUrl":"http://localhost:3004/api/v3/webhook",
+    "input": "xxx" // The user defines the content to be detected in words	
 }
 ```
 
