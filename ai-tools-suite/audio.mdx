@@ -19,6 +19,13 @@ GET https://openapi.akool.com/api/open/v3/voice/list
 |---------------|--------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Authorization | Bearer token | Your API Key used for request authorization. You can get from [https://openapi.akool.com/api/open/v3/getToken](https://openapi.akool.com/api/open/v3/getToken) api. |
 
+**Query Attributes**
+
+| **Parameter** | **Type** | **Value** | **Description**                                                                                                                               |
+| ------------- | -------- | --------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
+| from          | Number   | 3, 4      | 3 represents the official voice of Akool, 4 represents the voice created by the user themselves，If empty, returns all voice by office and users. |
+
+
 **Response Attributes**
 
 | **Parameter** | **Type** | **Value**                           | **Description**                                                                                                          |
@@ -34,7 +41,7 @@ GET https://openapi.akool.com/api/open/v3/voice/list
 <CodeGroup>
 
 ```bash cURL
-curl --location 'https://openapi.akool.com/api/open/v3/voice/list' \
+curl --location 'https://openapi.akool.com/api/open/v3/voice/list?from=3' \
 --header 'Authorization: Bearer {{Authorization}}'
 ```
 
@@ -44,7 +51,7 @@ OkHttpClient client = new OkHttpClient().newBuilder()
 MediaType mediaType = MediaType.parse("text/plain");
 RequestBody body = RequestBody.create(mediaType, "");
 Request request = new Request.Builder()
-  .url("https://openapi.akool.com/api/open/v3/voice/list")
+  .url("https://openapi.akool.com/api/open/v3/voice/list?from=3")
   .method("GET", body)
   .addHeader("Authorization", "Bearer {{Authorization}}")
   .build();
@@ -61,7 +68,7 @@ const requestOptions = {
   redirect: "follow"
 };
 
-fetch("https://openapi.akool.com/api/open/v3/voice/list", requestOptions)
+fetch("https://openapi.akool.com/api/open/v3/voice/list?from=3", requestOptions)
   .then((response) => response.text())
   .then((result) => console.log(result))
   .catch((error) => console.error(error));
@@ -73,7 +80,7 @@ $client = new Client();
 $headers = [
   'Authorization' => '{{Authorization}}'
 ];
-$request = new Request('GET', 'https://openapi.akool.com/api/open/v3/voice/list', $headers);
+$request = new Request('GET', 'https://openapi.akool.com/api/open/v3/voice/list?from=3', $headers);
 $res = $client->sendAsync($request)->wait();
 echo $res->getBody();
 ```
@@ -81,7 +88,7 @@ echo $res->getBody();
 ```python Python 
 import requests
 
-url = "https://openapi.akool.com/api/open/v3/voice/list"
+url = "https://openapi.akool.com/api/open/v3/voice/list?from=3"
 
 payload = {}
 headers = {
