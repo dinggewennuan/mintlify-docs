@@ -8,7 +8,7 @@ description: "Talking Avatar API documentation"
 ### Description
 
 - First you need to generate the voice through the following method or directly provide a link to the available voice file
-  - If you want to use the system's sound model to generate speech, you need to generate a link by calling the interface [Create TTS](https://docstest.akool.io/ai-tools-suite/audio#create-tts)
+  - If you want to use the system's sound model to generate speech, you need to generate a link by calling the interface [Create TTS](https://docs.akool.io/ai-tools-suite/audio#create-tts)
   - If you want to use the sound model you provide to generate speech, you need to generate a link by calling the interface [Create Voice Clone](https://docstest.akool.io/ai-tools-suite/audio#create-voice-clone)
 - Secondly, you need to provide an avatar link, which can be a picture or video.
   - If you want to use the avatar provided by the system, you can obtain it through the interface [Get Avatar List](https://docs.akool.com/ai-tools-suite/avatar#get-avatar-list)
@@ -25,7 +25,7 @@ GET https://openapi.akool.com/api/open/v3/avatar/list
 
 | **Parameter** | **Value**    | **Description**                                                                                                                                                     |
 | ------------- | ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Authorization | Bearer token | Your API Key used for request authorization. You can get from [https://openapi.akool.com/api/open/v3/getToken](https://openapi.akool.com/api/open/v3/getToken) api. |
+| Authorization | Bearer token | Your API Key used for request authorization. You can get from [https://openapi.akool.com/api/open/v3/getToken](https://docs.akool.io/authentication/usage#get-the-token) api. |
 
 **Query Attributes**
 
@@ -143,7 +143,7 @@ POST https://openapi.akool.com/api/open/v3/talkingavatar/create
 
 | **Parameter** | **Value**    | **Description**                                                                                                                                                     |
 | ------------- | ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Authorization | Bearer token | Your API Key used for request authorization. You can get from [https://openapi.akool.com/api/open/v3/getToken](https://openapi.akool.com/api/open/v3/getToken) api. |
+| Authorization | Bearer token | Your API Key used for request authorization. You can get from [https://openapi.akool.com/api/open/v3/getToken](https://docs.akool.io/authentication/usage#get-the-token) api. |
 
 **Body Attributes**
 
@@ -151,10 +151,10 @@ POST https://openapi.akool.com/api/open/v3/talkingavatar/create
 | ------------------------------ | -------- | ----- | ------------------------------------------------------------------------------------------------------------ |
 | width                          | Number   | 3840  | Set the output video width                                                                                   |
 | height                         | Number   | 2160  | Set the output video height                                                                                  |
-| avatar_from                    | Number   |       | You use the avatar from of the avatar model, and you can get from [https://openapi.akool.com/api/open/v3/avatar/list](https://openapi.akool.com/api/open/v3/avatar/list) api, you will obtain the field 【from】 and pass it here                                                        |
+| avatar_from                    | Number   |       | You use the avatar from of the avatar model, and you can get from [https://openapi.akool.com/api/open/v3/avatar/list](https://docs.akool.io/ai-tools-suite/avatar#get-avatar-list) api, you will obtain the field 【from】 and pass it here                                                        |
 | webhookUrl                     | String   |       | Callback url address based on HTTP request.                                                                  |
 | [data].voice                   | Object   |       | Set Video Sound                                                                                              |
-| [data].voice.voice_url         | String   |       | When you want to use the specified audio for cloning, you first need to call[ https://openapi.akool.com/api/open/v3/audio/create ](https://openapi.akool.com/api/open/v3/audio/create)API for audio cloning, you will obtain the field 【url】 and pass it here                           |
+| [data].voice.voice_url         | String   |       | When you want to use the specified audio for cloning, you first need to call[ https://openapi.akool.com/api/open/v3/audio/create ](https://docs.akool.io/ai-tools-suite/audio#create-tts)API for audio cloning, you will obtain the field 【url】 and pass it here                           |
 | elements                       | [Object] |       | Collection of elements passed in in the video                                                                |
 | [elements].url                 | String |         | Link to element(When type is equal to image, url can be either a link or a Hexadecimal Color Code)           |
 | [elements].scale_x             | Number |     1  | Horizontal scaling ratio(Required when type is equal to image or avatar)                                                                |
