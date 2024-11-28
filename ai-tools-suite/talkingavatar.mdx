@@ -157,12 +157,12 @@ POST https://openapi.akool.com/api/open/v3/talkingavatar/create
 | [data].voice.voice_url         | String   |       | When you want to use the specified audio for cloning, you first need to call[ https://openapi.akool.com/api/open/v3/audio/create ](https://openapi.akool.com/api/open/v3/audio/create)API for audio cloning, you will obtain the field 【url】 and pass it here                           |
 | elements                       | [Object] |       | Collection of elements passed in in the video                                                                |
 | [elements].url                 | String |         | Link to element(When type is equal to image, url can be either a link or a Hexadecimal Color Code)           |
-| [elements].scale_x             | Number |       | Horizontal scaling ratio, range of values (0-1)(Required when type is equal to image or avatar)                                                                |
-| [elements].scale_y             | Number |       | Vertical scaling ratio, range of values (0-1)(Required when type is equal to image or avatar)                                                                  |
+| [elements].scale_x             | Number |     1  | Horizontal scaling ratio(Required when type is equal to image or avatar)                                                                |
+| [elements].scale_y             | Number |     1  | Vertical scaling ratio (Required when type is equal to image or avatar)                                                                  |
 | [elements].offset_x            | Number |       | Horizontal offset of the upper left corner of the element from the video setting area (in pixels)(Required when type is equal to image or avatar)               |
 | [elements].offset_y            | Number |       | Vertical offset of the upper left corner of the element from the video setting area (in pixels)(Required when type is equal to image or avatar)                 |
-| [elements].height              | Number |       |       ss           |
-| [elements].width               | Number |       |        ss          |
+| [elements].height              | Number |       |       The height of the element           |
+| [elements].width               | Number |       |        The width of the element         |
 | [elements].type                | String |       | Element type（avatar、image、audio）                                                                                   |
 | [elements].avatar_id           | String |       |When type is equal to avatar_id, you use the avatar_id of the avatar model, and you can get from [https://openapi.akool.com/api/open/v3/avatar/list](https://docs.akool.io/ai-tools-suite/avatar#get-avatar-list) api, you will obtain the field 【avatar_id】 and pass it here                                                      |
 
