@@ -179,41 +179,36 @@ POST https://openapi.akool.com/api/open/v3/talkingavatar/create
 
 ```json
 {
-  "data": [
-    {
-      "width": 1920,
-      "height": 1080,
-      "duration": 18938.75,
-      "voice": {
-        "voice_url": "https://drz0f01yeq1cx.cloudfront.net/1712113284451-fe73dd6c-f981-46df-ba73-0b9d85c1be9c-8195.mp3"
-      },
-      "elements": [
+    "width": 3840,
+    "height": 2160,
+    "duration": 7128,
+    "avatar_from": 3,
+    "elements": [
         {
-          "url": "https://d11fbe263bhqij.cloudfront.net/agicontent/avatar/elements/landscape_furniture1.png",
-          "scale_x": 1,
-          "scale_y": 1,
-          "offset_x": 960,
-          "offset_y": 540,
-          "type": "image",
-          "layer_number": 1
+            "type": "image",
+            "url": "https://drz0f01yeq1cx.cloudfront.net/1729480978805-talkingAvatarbg.png",
+            "width": 780,
+            "height": 438,
+            "scale_x": 1,
+            "scale_y": 1,
+            "offset_x": 1920,
+            "offset_y": 1080
         },
         {
-          "id": "avatar",
-          "url": "https://drz0f01yeq1cx.cloudfront.net/avatar/thumbnail/1700786295159-e450163c-7b50-4714-9763-ed7a0e09d8b2-8298.png",
-          "scale_x": 1,
-          "scale_y": 1,
-          "offset_x": 1380,
-          "offset_y": 540,
-          "type": "avatar",
-          "avatar_id": "Barbara_in_Black_suit_20231121",
-          "layer_number": 3
+            "type": "avatar",
+            "url": "https://drz0f01yeq1cx.cloudfront.net/1732790419812-avavar_demo.jpg",
+            "scale_x": 1,
+            "scale_y": 1,
+            "width": 1080,
+            "height": 1080,
+            "offset_x": 1920,
+            "offset_y": 1080
+        },
+        {
+            "type": "audio",
+            "url": "https://drz0f01yeq1cx.cloudfront.net/1729666642023-bd6ad5f1-d558-40c7-b720-ad729688f814-6403.mp3"
         }
-      ],
-      "ratio": "16:9",
-      "background": "#ffffff",
-      "avatarFrom": 3
-    }
-  ],
+    ]
   "webhookUrl": "http://localhost:3007/api/open/v3/test/webhook"
 }
 ```
@@ -223,44 +218,40 @@ POST https://openapi.akool.com/api/open/v3/talkingavatar/create
 <CodeGroup>
 
 ```bash cURL
-curl --location 'https://openapi.akool.com/api/open/v3/avatar/createVideo' \
+curl --location 'https://openapi-test.akool.io/api/open/v3/talkingavatar/create' \
 --header 'Authorization: Bearer token' \
 --header 'Content-Type: application/json' \
 --data '{
-    "data": [{
-    "width": 1920,
-    "height": 1080,
-    "duration": 18938.75,
-    "voice": {
-      "voice_url": "https://drz0f01yeq1cx.cloudfront.net/1712113284451-fe73dd6c-f981-46df-ba73-0b9d85c1be9c-8195.mp3"
-    },
+    "width": 3840,
+    "height": 2160,
+    "duration": 7128,
+    "avatar_from": 3,
     "elements": [
-      {
-        "url": "https://d11fbe263bhqij.cloudfront.net/agicontent/avatar/elements/landscape_furniture1.png",
-        "scale_x": 1,
-        "scale_y": 1,
-        "offset_x": 960,
-        "offset_y": 540,
-        "type": "image",
-        "layer_number": 1
-      },
-      {
-        "id": "avatar",
-        "url": "https://drz0f01yeq1cx.cloudfront.net/avatar/thumbnail/1700786295159-e450163c-7b50-4714-9763-ed7a0e09d8b2-8298.png",
-        "scale_x": 1,
-        "scale_y": 1,
-        "offset_x": 1380,
-        "offset_y": 540,
-        "type": "avatar",
-        "avatar_id": "Barbara_in_Black_suit_20231121",
-        "layer_number": 3
-      }
-    ],
-    "ratio": "16:9",
-    "background": "#ffffff",
-    "avatarFrom": 3
-  }],
-  "webhookUrl":"http://localhost:3007/api/open/v3/test/webhook"
+        {
+            "type": "image",
+            "url": "https://drz0f01yeq1cx.cloudfront.net/1729480978805-talkingAvatarbg.png",
+            "width": 780,
+            "height": 438,
+            "scale_x": 1,
+            "scale_y": 1,
+            "offset_x": 1920,
+            "offset_y": 1080
+        },
+        {
+            "type": "avatar",
+            "url": "https://drz0f01yeq1cx.cloudfront.net/1732790419812-avavar_demo.jpg",
+            "scale_x": 1,
+            "scale_y": 1,
+            "width": 1080,
+            "height": 1080,
+            "offset_x": 1920,
+            "offset_y": 1080
+        },
+        {
+            "type": "audio",
+            "url": "https://drz0f01yeq1cx.cloudfront.net/1729666642023-bd6ad5f1-d558-40c7-b720-ad729688f814-6403.mp3"
+        }
+    ]
 }'
 ```
 
@@ -268,9 +259,9 @@ curl --location 'https://openapi.akool.com/api/open/v3/avatar/createVideo' \
 OkHttpClient client = new OkHttpClient().newBuilder()
   .build();
 MediaType mediaType = MediaType.parse("application/json");
-RequestBody body = RequestBody.create(mediaType, "{\n    \"data\": [{\n        \"width\": 1920,\n        \"height\": 1080,\n        \"duration\": 18938.75,\n        \"voice\": {\n         \"voice_url\": \"https://drz0f01yeq1cx.cloudfront.net/1712113284451-fe73dd6c-f981-46df-ba73-0b9d85c1be9c-8195.mp3\"\n        },\n        \"elements\": [\n            {\n                \"url\": \"https://d11fbe263bhqij.cloudfront.net/agicontent/avatar/elements/landscape_furniture1.png\",\n                \"scale_x\": 1,\n                \"scale_y\": 1,\n                \"offset_x\": 960,\n                \"offset_y\": 540,\n                \"type\": \"image\",\n                \"layer_number\": 1\n            },\n            {\n                \"url\": \"https://drz0f01yeq1cx.cloudfront.net/1712025503602-leijun-2s.mp4\",\n                \"scale_x\": 0.5,\n                \"scale_y\": 0.5,\n                \"offset_x\": 1457.22,\n                \"offset_y\": 72.91,\n                \"type\": \"video\",\n                \"layer_number\": 2\n            },\n            {\n                \"id\": \"avatar\",\n                \"url\": \"https://drz0f01yeq1cx.cloudfront.net/avatar/thumbnail/1700786295159-e450163c-7b50-4714-9763-ed7a0e09d8b2-8298.png\",\n                \"scale_x\": 1,\n                \"scale_y\": 1,\n                \"offset_x\": 1380,\n                \"offset_y\": 540,\n                \"type\": \"avatar\",\n                \"avatar_id\": \"Barbara_in_Black_suit_20231121\",\n                \"layer_number\": 3\n            }\n        ],\n        \"ratio\": \"16:9\",\n        \"avatarFrom\": 2\n    }],\n    \"webhookUrl\":\"http://localhost:3007/api/open/v3/test/webhook\" \n}");
+RequestBody body = RequestBody.create(mediaType, "{\n    \"width\": 3840,\n    \"height\": 2160,\n    \"duration\": 7128,\n    \"avatar_from\": 3,\n    \"elements\": [\n        {\n            \"type\": \"image\",\n            \"url\": \"https://drz0f01yeq1cx.cloudfront.net/1729480978805-talkingAvatarbg.png\",\n            \"width\": 780,\n            \"height\": 438,\n            \"scale_x\": 1,\n            \"scale_y\": 1,\n            \"offset_x\": 1920,\n            \"offset_y\": 1080\n        },\n        {\n            \"type\": \"avatar\",\n            \"url\": \"https://drz0f01yeq1cx.cloudfront.net/1732790419812-avavar_demo.jpg\",\n            \"scale_x\": 1,\n            \"scale_y\": 1,\n            \"width\": 1080,\n            \"height\": 1080,\n            \"offset_x\": 1920,\n            \"offset_y\": 1080\n        },\n        {\n            \"type\": \"audio\",\n            \"url\": \"https://drz0f01yeq1cx.cloudfront.net/1729666642023-bd6ad5f1-d558-40c7-b720-ad729688f814-6403.mp3\"\n        }\n    ]\n}");
 Request request = new Request.Builder()
-  .url("https://openapi.akool.com/api/open/v3/avatar/createVideo")
+  .url("https://openapi-test.akool.io/api/open/v3/talkingavatar/create")
   .method("POST", body)
   .addHeader("Authorization", "Bearer token")
   .addHeader("Content-Type", "application/json")
@@ -284,56 +275,46 @@ myHeaders.append("Authorization", "Bearer token");
 myHeaders.append("Content-Type", "application/json");
 
 const raw = JSON.stringify({
-  data: [
+  "width": 3840,
+  "height": 2160,
+  "duration": 7128,
+  "avatar_from": 3,
+  "elements": [
     {
-      width: 1920,
-      height: 1080,
-      duration: 18938.75,
-      voice: {
-        voice_url:
-          "https://drz0f01yeq1cx.cloudfront.net/1712113284451-fe73dd6c-f981-46df-ba73-0b9d85c1be9c-8195.mp3",
-      },
-      elements: [
-        {
-          url: "https://d11fbe263bhqij.cloudfront.net/agicontent/avatar/elements/landscape_furniture1.png",
-          scale_x: 1,
-          scale_y: 1,
-          offset_x: 960,
-          offset_y: 540,
-          type: "image",
-          layer_number: 1,
-        },
-        {
-          id: "avatar",
-          url: "https://drz0f01yeq1cx.cloudfront.net/avatar/thumbnail/1700786295159-e450163c-7b50-4714-9763-ed7a0e09d8b2-8298.png",
-          scale_x: 1,
-          scale_y: 1,
-          offset_x: 1380,
-          offset_y: 540,
-          type: "avatar",
-          avatar_id: "Barbara_in_Black_suit_20231121",
-          layer_number: 3,
-        },
-      ],
-      ratio: "16:9",
-      background: "#ffffff",
-      avatarFrom: 3,
+      "type": "image",
+      "url": "https://drz0f01yeq1cx.cloudfront.net/1729480978805-talkingAvatarbg.png",
+      "width": 780,
+      "height": 438,
+      "scale_x": 1,
+      "scale_y": 1,
+      "offset_x": 1920,
+      "offset_y": 1080
     },
-  ],
-  webhookUrl: "http://localhost:3007/api/open/v3/test/webhook",
+    {
+      "type": "avatar",
+      "url": "https://drz0f01yeq1cx.cloudfront.net/1732790419812-avavar_demo.jpg",
+      "scale_x": 1,
+      "scale_y": 1,
+      "width": 1080,
+      "height": 1080,
+      "offset_x": 1920,
+      "offset_y": 1080
+    },
+    {
+      "type": "audio",
+      "url": "https://drz0f01yeq1cx.cloudfront.net/1729666642023-bd6ad5f1-d558-40c7-b720-ad729688f814-6403.mp3"
+    }
+  ]
 });
 
 const requestOptions = {
   method: "POST",
   headers: myHeaders,
   body: raw,
-  redirect: "follow",
+  redirect: "follow"
 };
 
-fetch(
-  "https://openapi.akool.com/api/open/v3/avatar/createVideo",
-  requestOptions
-)
+fetch("https://openapi-test.akool.io/api/open/v3/talkingavatar/create", requestOptions)
   .then((response) => response.text())
   .then((result) => console.log(result))
   .catch((error) => console.error(error));
@@ -347,42 +328,38 @@ $headers = [
   'Content-Type' => 'application/json'
 ];
 $body = '{
-  "data": [{
-    "width": 1920,
-    "height": 1080,
-    "duration": 18938.75,
-    "voice": {
-      "voice_url": "https://drz0f01yeq1cx.cloudfront.net/1712113284451-fe73dd6c-f981-46df-ba73-0b9d85c1be9c-8195.mp3"
+  "width": 3840,
+  "height": 2160,
+  "duration": 7128,
+  "avatar_from": 3,
+  "elements": [
+    {
+      "type": "image",
+      "url": "https://drz0f01yeq1cx.cloudfront.net/1729480978805-talkingAvatarbg.png",
+      "width": 780,
+      "height": 438,
+      "scale_x": 1,
+      "scale_y": 1,
+      "offset_x": 1920,
+      "offset_y": 1080
     },
-    "elements": [
-      {
-        "url": "https://d11fbe263bhqij.cloudfront.net/agicontent/avatar/elements/landscape_furniture1.png",
-        "scale_x": 1,
-        "scale_y": 1,
-        "offset_x": 960,
-        "offset_y": 540,
-        "type": "image",
-        "layer_number": 1
-      },
-      {
-        "id": "avatar",
-        "url": "https://drz0f01yeq1cx.cloudfront.net/avatar/thumbnail/1700786295159-e450163c-7b50-4714-9763-ed7a0e09d8b2-8298.png",
-        "scale_x": 1,
-        "scale_y": 1,
-        "offset_x": 1380,
-        "offset_y": 540,
-        "type": "avatar",
-        "avatar_id": "Barbara_in_Black_suit_20231121",
-        "layer_number": 3
-      }
-    ],
-    "ratio": "16:9",
-    "background": "#ffffff",
-    "avatarFrom": 3
-  }],
-  "webhookUrl":"http://localhost:3007/api/open/v3/test/webhook"
+    {
+      "type": "avatar",
+      "url": "https://drz0f01yeq1cx.cloudfront.net/1732790419812-avavar_demo.jpg",
+      "scale_x": 1,
+      "scale_y": 1,
+      "width": 1080,
+      "height": 1080,
+      "offset_x": 1920,
+      "offset_y": 1080
+    },
+    {
+      "type": "audio",
+      "url": "https://drz0f01yeq1cx.cloudfront.net/1729666642023-bd6ad5f1-d558-40c7-b720-ad729688f814-6403.mp3"
+    }
+  ]
 }';
-$request = new Request('POST', 'https://openapi.akool.com/api/open/v3/content/video/createbytalkingphoto', $headers, $body);
+$request = new Request('POST', 'https://openapi-test.akool.io/api/open/v3/talkingavatar/create', $headers, $body);
 $res = $client->sendAsync($request)->wait();
 echo $res->getBody();
 ```
@@ -391,43 +368,39 @@ echo $res->getBody();
 import requests
 import json
 
-url = "https://openapi.akool.com/api/open/v3/avatar/createVideoo"
+url = "https://openapi-test.akool.io/api/open/v3/talkingavatar/create"
 
 payload = json.dumps({
-  "data": [{
-    "width": 1920,
-    "height": 1080,
-    "duration": 18938.75,
-    "voice": {
-      "voice_url": "https://drz0f01yeq1cx.cloudfront.net/1712113284451-fe73dd6c-f981-46df-ba73-0b9d85c1be9c-8195.mp3"
+  "width": 3840,
+  "height": 2160,
+  "duration": 7128,
+  "avatar_from": 3,
+  "elements": [
+    {
+      "type": "image",
+      "url": "https://drz0f01yeq1cx.cloudfront.net/1729480978805-talkingAvatarbg.png",
+      "width": 780,
+      "height": 438,
+      "scale_x": 1,
+      "scale_y": 1,
+      "offset_x": 1920,
+      "offset_y": 1080
     },
-    "elements": [
-      {
-        "url": "https://d11fbe263bhqij.cloudfront.net/agicontent/avatar/elements/landscape_furniture1.png",
-        "scale_x": 1,
-        "scale_y": 1,
-        "offset_x": 960,
-        "offset_y": 540,
-        "type": "image",
-        "layer_number": 1
-      },
-      {
-        "id": "avatar",
-        "url": "https://drz0f01yeq1cx.cloudfront.net/avatar/thumbnail/1700786295159-e450163c-7b50-4714-9763-ed7a0e09d8b2-8298.png",
-        "scale_x": 1,
-        "scale_y": 1,
-        "offset_x": 1380,
-        "offset_y": 540,
-        "type": "avatar",
-        "avatar_id": "Barbara_in_Black_suit_20231121",
-        "layer_number": 3
-      }
-    ],
-    "ratio": "16:9",
-    "background": "#ffffff",
-    "avatarFrom": 3
-  }],
-  "webhookUrl":"http://localhost:3007/api/open/v3/test/webhook"
+    {
+      "type": "avatar",
+      "url": "https://drz0f01yeq1cx.cloudfront.net/1732790419812-avavar_demo.jpg",
+      "scale_x": 1,
+      "scale_y": 1,
+      "width": 1080,
+      "height": 1080,
+      "offset_x": 1920,
+      "offset_y": 1080
+    },
+    {
+      "type": "audio",
+      "url": "https://drz0f01yeq1cx.cloudfront.net/1729666642023-bd6ad5f1-d558-40c7-b720-ad729688f814-6403.mp3"
+    }
+  ]
 })
 headers = {
   'Authorization': 'Bearer token',
