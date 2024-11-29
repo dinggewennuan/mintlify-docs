@@ -154,7 +154,7 @@ POST https://openapi.akool.com/api/open/v3/talkingavatar/create
 | avatar_from                    | Number   |   2 or 3    | You use the avatar from of the avatar model, and you can get from [https://openapi.akool.com/api/open/v3/avatar/list](https://docs.akool.io/ai-tools-suite/avatar#get-avatar-list) api, you will obtain the field 【from】 and pass it here. If you provide an avatar URL yourself, avatar_from must be 3.                                                      |
 | webhookUrl                     | String   |       | Callback url address based on HTTP request.                                                                  |
 | elements                       | [Object] |       | Collection of elements passed in in the video                                                                |
-| [elements].url                 | String |         | Link to element(When type is equal to image, url can be either a link or a Hexadecimal Color Code)           |
+| [elements].url                 | String |         | Link to element(When type is equal to image, url can be either a link or a Hexadecimal Color Code). When avatar_from =2, you don't need to pass this parameter          |
 | [elements].scale_x             | Number |     1  | Horizontal scaling ratio(Required when type is equal to image or avatar)                                                                |
 | [elements].scale_y             | Number |     1  | Vertical scaling ratio (Required when type is equal to image or avatar)                                                                  |
 | [elements].offset_x            | Number |       | Horizontal offset of the upper left corner of the element from the video setting area (in pixels)(Required when type is equal to image or avatar)               |
@@ -418,66 +418,17 @@ print(response.text)
 
 ```json
 {
-  "code": 1000, // API code
-  "msg": "OK",
-  "data": {
-    "create_time": 1712048827995,
-    "uid": 100004,
-    "type": 4,
-    "from": 2,
-    "ratio": "16:9",
-    "background": "",
-    "offset_x": 0,
-    "offset_y": 0,
-    "scale": 1,
-    "faceswap_quality": 2,
-    "video_sub_status": 1,
-    "video_status": 1,
-    "video_lock_duration": 1515,
-    "deduction_lock_duration": 1520,
-    "external_video": "",
-    "video": "",
-    "storage_loc": 1,
-    "source_data": {
-      "data": [{
-        "width": 1920,
-        "height": 1080,
-        "duration": 18938.75,
-        "voice": {
-          "voice_url": "https://drz0f01yeq1cx.cloudfront.net/1712113284451-fe73dd6c-f981-46df-ba73-0b9d85c1be9c-8195.mp3"
-        },
-        "elements": [
-          {
-            "url": "https://d11fbe263bhqij.cloudfront.net/agicontent/avatar/elements/landscape_furniture1.png",
-            "scale_x": 1,
-            "scale_y": 1,
-            "offset_x": 960,
-            "offset_y": 540,
-            "type": "image",
-            "layer_number": 1
-          },
-          {
-            "id": "avatar",
-            "url": "https://drz0f01yeq1cx.cloudfront.net/avatar/thumbnail/1700786295159-e450163c-7b50-4714-9763-ed7a0e09d8b2-8298.png",
-            "scale_x": 1,
-            "scale_y": 1,
-            "offset_x": 1380,
-            "offset_y": 540,
-            "type": "avatar",
-            "avatar_id": "Barbara_in_Black_suit_20231121",
-            "layer_number": 3
-          }
-        ],
-        "ratio": "16:9",
-        "background": "#ffffff",
-        "avatarFrom": 3
-      }],
-      "webhookUrl":"http://localhost:3007/api/open/v3/test/webhook"
-      "userId": "64ddd5fa3a458a183f71f665"
-    },
-    "_id": "660bcabb6e2f6d2bba67f1fd",
-    "__v": 0
-  }
+    "code": 1000,
+    "msg": "OK",
+    "data": {
+        "_id": "67491cdb4d9d1664a9782292",
+        "uid": 100002,
+        "video_id": "f1a489f4-0cca-4723-843b-e42003dc9f32",
+        "task_id": "67491cdb1acd9d0ce2cc8998",
+        "video_status": 1,
+        "video": "",
+        "create_time": 1732844763774
+    }
 }
 ```
 
