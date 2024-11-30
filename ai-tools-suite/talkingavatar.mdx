@@ -173,6 +173,13 @@ POST https://openapi.akool.com/api/open/v3/talkingavatar/create
 | msg       | String |                                        | Interface returns status information                                                                                                                |
 | data      | Object | `{ _id:"", video_status:3, video:"" }` | `_id`: Interface returns data status: the status of video: 【1:queueing, 2:processing, 3:completed, 4:failed】, `video`: the url of Generated video |
 
+<Note>
+  Please note that the generated video link can only be obtained when video_status is equal to 3. 
+  We provide 2 methods:
+    1. Obtain through webhook
+    2. Obtain by polling the following interface https://openapi.akool.com/api/open/v3/content/video/infobymodelid
+</Note>
+
 **Example**
 
 **Body**
