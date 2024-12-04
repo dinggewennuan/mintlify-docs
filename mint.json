@@ -41,12 +41,14 @@
   "navigation": [
     {
       "group": "Authentication",
+       "version": "v1",
       "pages": [
         "authentication/usage"
       ]
     },
     {
       "group": "AI Tools Suite",
+       "version": "v1",
       "pages": [
         "ai-tools-suite/faceswap",
         "ai-tools-suite/reage",
