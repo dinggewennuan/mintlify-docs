@@ -162,7 +162,7 @@ POST https://openapi.akool.com/api/open/v3/talkingavatar/create
 | [elements].height              | Number |       |       The height of the element           |
 | [elements].width               | Number |       |        The width of the element         |
 | [elements].type                | String |       | Element type（avatar、image、audio）                                                                                   |
-| [elements].avatar_id           | String |       |When type is equal to avatar, you use the avatar_id of the avatar model, and you can get from [https://openapi.akool.com/api/open/v3/avatar/list](https://docs.akool.io/ai-tools-suite/avatar#get-avatar-list) api, you will obtain the field 【avatar_id】 and pass it here。 If you provide an avatar URL yourself, you don't need to pass this parameter.                                                     |
+| [elements].avatar_id           | String |       |When type is equal to avatar, you use the avatar_id of the avatar model, and you can get from [https://openapi.akool.com/api/open/v3/avatar/list](https://docs.akool.io/ai-tools-suite/talkingavatar#get-avatar-list) api, you will obtain the field 【avatar_id】 and pass it here。 If you provide an avatar URL yourself, you don't need to pass this parameter.                                                     |
 
 
 **Response Attributes**
@@ -177,7 +177,7 @@ POST https://openapi.akool.com/api/open/v3/talkingavatar/create
   Please note that the generated video link can only be obtained when video_status is equal to 3. 
   We provide 2 methods:
     1. Obtain through [webhook](https://docs.akool.io/ai-tools-suite/webhook#encryption-and-decryption-technology-solution)
-    2. Obtain by polling the following interface [Get Video Info](https://docs.akool.io/ai-tools-suite/avatar#get-video-info)
+    2. Obtain by polling the following interface [Get Video Info](https://docs.akool.io/ai-tools-suite/talkingavatar#get-video-info)
 </Note>
 
 **Example**
