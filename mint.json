@@ -38,36 +38,7 @@
       "url": "https://akool.com/blog"
     }
   ],
-    "navigation": {
-    "lastUpdated": true,  
-    "groups": [ 
-      {
-        "group": "Authentication",
-        "pages": [
-          "authentication/usage"
-        ]
-      },
-      {
-        "group": "AI Tools Suite",
-        "pages": [
-          "ai-tools-suite/faceswap",
-          "ai-tools-suite/reage",
-          "ai-tools-suite/audio",
-          "ai-tools-suite/video-translation",
-          "ai-tools-suite/talking-photo",
-          "ai-tools-suite/talkingavatar",
-          "ai-tools-suite/background-change",
-          "ai-tools-suite/lip-sync",
-          "ai-tools-suite/live-avatar",
-          "ai-tools-suite/image-generate",
-          "ai-tools-suite/jarvis-moderator",
-          "ai-tools-suite/webhook",
-          "ai-tools-suite/error-code.mdx"
-        ]
-      }
-    ]
-  },
-  "modeToggle": {
+    "modeToggle": {
     "default": "light",
     "isHidden": false
   },
@@ -77,5 +48,32 @@
   },
   "footerSocials": {
     "website": "https://akool.com"
-  }
+  },
+  "lastUpdated": true,
+  "navigation": [
+    {
+      "group": "Authentication",
+      "pages": [
+        "authentication/usage"
+      ]
+    },
+    {
+      "group": "AI Tools Suite",
+      "pages": [
+        "ai-tools-suite/faceswap",
+        "ai-tools-suite/reage",
+         "ai-tools-suite/audio",
+        "ai-tools-suite/video-translation",
+        "ai-tools-suite/talking-photo",
+        "ai-tools-suite/talkingavatar",
+        "ai-tools-suite/background-change",
+        "ai-tools-suite/lip-sync",
+        "ai-tools-suite/live-avatar",
+         "ai-tools-suite/image-generate",
+        "ai-tools-suite/jarvis-moderator",
+        "ai-tools-suite/webhook",
+        "ai-tools-suite/error-code.mdx"
+      ]
+    }
+  ]
 }
