@@ -38,6 +38,7 @@
       "url": "https://akool.com/blog"
     }
   ],
+   "lastUpdated": true ,
   "navigation": [
     {
       "group": "Authentication",
