@@ -263,9 +263,9 @@ POST https://openapi.akool.com/api/open/v3/faceswap/live/close
 
 ## Code Examples
 
-### cURL
+<CodeGroup>
 
-```bash
+```bash cURL
 # Get token
 curl -X POST "https://openapi.akool.com/api/open/v3/getToken" \
     -H "Content-Type: application/json" \
@@ -319,9 +319,7 @@ curl -X POST "https://openapi.akool.com/api/open/v3/faceswap/live/close" \
     }'
 ```
 
-### JavaScript
-
-```javascript
+```javascript JavaScript
 // Get token
 const getToken = async () => {
     const response = await fetch('https://openapi.akool.com/api/open/v3/getToken', {
@@ -400,9 +398,7 @@ const closeSession = async (token, sessionId) => {
 };
 ```
 
-### Python
-
-```python
+```python Python
 import requests
 import json
 
@@ -472,6 +468,8 @@ def close_session(token, session_id):
     return response.json()
 ```
 
+</CodeGroup>
+
 ## Important Notes
 
 1. **Resource Validity**: Generated resources are valid for 7 days, please save them promptly
@@ -488,9 +486,9 @@ For implementing real-time video communication with Agora SDK, you can refer to 
 
 ### Basic Video Calling Demo Parameter Description
 
-![Basic Video Calling Demo Parameter Description](./images/demo-ui.png)
+![Basic Video Calling Demo Parameter Description](https://d21ksh0k4smeql.cloudfront.net/openapi/images/live-faceswap-demo-ui.png)
 
-As shown in the figure above, `channel_id`, `front_user_id`, and `front_rtc_token` correspond to the Channel, User ID, and Token input fields on the page respectively.
+As shown in the figure link, `channel_id`, `front_user_id`, and `front_rtc_token` correspond to the Channel, User ID, and Token input fields on the page respectively.
 These parameters can be obtained after creating a session through the Live Face Swap API. After filling them in, you can experience push/pull streaming and real-time face swap effects.
 
 ### Demo Page
