@@ -79,7 +79,8 @@
         "ai-tools-suite/jarvis-moderator",
         "ai-tools-suite/webhook",
         "ai-tools-suite/error-code",
-        "ai-tools-suite/voiceLab"
+        "ai-tools-suite/voiceLab",
+        "ai-tools-suite/live-faceswap"
       ]
     }
   ],
