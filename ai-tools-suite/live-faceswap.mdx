@@ -473,14 +473,15 @@ def close_session(token, session_id):
 
 ## Response Code Description
 
-<Note>If the value of the response code is not equal to 1000, the request has failed or is incorrect</Note>
-| **Parameter** | **Value** | **Description**                                      |
-|---------------|-----------|------------------------------------------------------|
-| code          | 1000      | Success |
-| code          | 1003      | Parameter error or parameter cannot be empty |
-| code          | 1101      | Invalid authorization or the request token has expired |
-| code          | 1102      | Authorization cannot be empty |
-| code          | 1104      | Insufficient quota |
+> **Note:** If the `code` value in the response is not `1000`, the request has failed or is incorrect.
+
+| **Parameter** | **Value** | **Description**                                              |
+|---------------|-----------|--------------------------------------------------------------|
+| code          | 1000      | Success                                                      |
+| code          | 1003      | Parameter error or parameter cannot be empty                 |
+| code          | 1101      | Invalid authorization or the request token has expired        |
+| code          | 1102      | Authorization cannot be empty                                |
+| code          | 1104      | Insufficient quota                                           |
 
 ## Important Notes
 
