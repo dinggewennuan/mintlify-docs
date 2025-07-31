@@ -69,7 +69,7 @@
         "ai-tools-suite/faceswap",
          "ai-tools-suite/live-faceswap",
         "ai-tools-suite/reage",
-         "ai-tools-suite/audio",
+         "ai-tools-suite/voiceLab",
         "ai-tools-suite/video-translation",
         "ai-tools-suite/talking-photo",
         "ai-tools-suite/talkingavatar",
@@ -79,8 +79,7 @@
          "ai-tools-suite/image-generate",
         "ai-tools-suite/jarvis-moderator",
         "ai-tools-suite/webhook",
-        "ai-tools-suite/error-code",
-        "ai-tools-suite/voiceLab"
+        "ai-tools-suite/error-code"
       ]
     }
   ],
