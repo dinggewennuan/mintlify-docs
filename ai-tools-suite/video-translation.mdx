@@ -8,6 +8,10 @@ description: ""
   Please save the relevant resources as soon as possible to prevent expiration.
 </Warning>
 
+<Info>
+Experience our video translation technology in action by exploring our interactive demo on GitHub: [AKool Video Translation Demo](https://github.com/AKOOL-Official/akool-video-translation-demo).
+</Info>
+
 ### Get Language List Result
 
 ```
@@ -17,8 +21,8 @@ GET https://openapi.akool.com/api/open/v3/language/list
 **Request Headers**
 
 | **Parameter** | **Value**    | **Description**                                                                                                                                                     |
-| ------------- | ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Authorization | Bearer token | Your API Key used for request authorization. You can get from [https://openapi.akool.com/api/open/v3/getToken](https://openapi.akool.com/api/open/v3/getToken) api. |
+| ------------- | ------------ | ----------------------------------------------------------------------------------------------------------------------------------------- |
+| Authorization | Bearer `{token}`| Your API Key used for request authorization. [Get Token](/authentication/usage#get-the-token)|
 
 **Response Attributes**
 
@@ -133,8 +137,7 @@ POST https://openapi.akool.com/api/open/v3/content/video/createbytranslate
 
 | **Parameter** | **Value**    | **Description**                                                                                                   |
 | ------------- | ------------ | ----------------------------------------------------------------------------------------------------------------- |
-| Authorization | Bearer token | Your API Key used for request authorization. You can get from https://openapi.akool.com/api/open/v3/getToken api. |
-
+| Authorization | Bearer `{token}`| Your API Key used for request authorization. [Get Token](/authentication/usage#get-the-token)|
 **Body Attributes**
 
 | **Parameter**   | **Type** | **Value**  | **Description**                                                                                 |
@@ -143,9 +146,10 @@ POST https://openapi.akool.com/api/open/v3/content/video/createbytranslate
 | source_language | String   |            | The original language of the video.                                                             |
 | language        | String   |            | The language you want to translate into.                                                        |
 | lipsync         | Boolean  | true/false | Get synchronized mouth movements with the audio track in a translated video.                    |
-| merge_interval  | Number   | 1          | The segmentation interval of video translation, the default is 1 second.                        |
-| face_enhance    | Boolean  | true/false | Whether to facial process the translated video, this parameter only works when lipsync is true. |
+| ~~merge_interval~~  | Number   | 1          | The segmentation interval of video translation, the default is 1 second. ***This field is deprecated***                       |
+| ~~face_enhance~~    | Boolean  | true/false | Whether to facial process the translated video, this parameter only works when lipsync is true. ***This field is deprecated*** |
 | webhookUrl      | String   |            | Callback url address based on HTTP request.                                                     |
+| speaker_num      | Number   |      1      | Number of speakers in the video, the default is 1.                                                     |
 
 **Response Attributes**
 
@@ -165,9 +169,10 @@ POST https://openapi.akool.com/api/open/v3/content/video/createbytranslate
   "language": "hi", // The language you want to translate into
   "source_language": "zh", // The original language of the video.
   "lipsync": true, //  Get synchronized mouth movements with the audio track in a translated video.
-  "merge_interval": 1,
-  "face_enhance": true, //  Whether to facial process the translated video, this parameter only works when lipsync is true.
-  "webhookUrl": "http://localhost:3007/api/open/v3/test/webhook" //  Callback url address based on HTTP request
+  //"merge_interval": 1, // This field is deprecated
+  //"face_enhance": true, //  Whether to facial process the translated video, this parameter only works when lipsync is true. This field is deprecated
+  "webhookUrl": "", //  Callback url address based on HTTP request
+  "speaker_num": 1
 }
 ```
 
@@ -183,10 +188,9 @@ curl --location 'https://openapi.akool.com/api/open/v3/content/video/createbytra
     "url": "https://drz0f01yeq1cx.cloudfront.net/1710470596011-facebook.mp4",
     "source_language": "zh",
     "language": "hi",
-    "face_enhance": true,
     "lipsync":true,
-    "merge_interval": 1,
-    "webhookUrl":"http://localhost:3007/api/open/v3/test/webhook"
+    "speaker_num": 1,
+    "webhookUrl":""
 }'
 ```
 
@@ -194,7 +198,7 @@ curl --location 'https://openapi.akool.com/api/open/v3/content/video/createbytra
 OkHttpClient client = new OkHttpClient().newBuilder()
   .build();
 MediaType mediaType = MediaType.parse("application/json");
-RequestBody body = RequestBody.create(mediaType, "{\n    \"url\": \"https://drz0f01yeq1cx.cloudfront.net/1710470596011-facebook.mp4\", \n    \"language\": \"hi\", \n    \"source_language\": \"zh\", \n    \"lipsync\":true, \n   \"merge_interval\":1, \n    \"face_enhance\":true, \n    \"webhookUrl\":\"http://localhost:3007/api/open/v3/test/webhook\"   \n}");
+RequestBody body = RequestBody.create(mediaType, "{\n    \"url\": \"https://drz0f01yeq1cx.cloudfront.net/1710470596011-facebook.mp4\", \n    \"language\": \"hi\", \n    \"source_language\": \"zh\", \n    \"lipsync\":true, \n    \"speaker_num\":1, \n    \"webhookUrl\":\"\"   \n}");
 Request request = new Request.Builder()
   .url("https://openapi.akool.com/api/open/v3/content/video/createbytranslate")
   .method("POST", body)
@@ -213,10 +217,9 @@ const raw = JSON.stringify({
   url: "https://drz0f01yeq1cx.cloudfront.net/1710470596011-facebook.mp4",
   language: "hi",
   source_language: "zh",
-  face_enhance: true,
   lipsync: true,
-  merge_interval: 1,
-  webhookUrl: "http://localhost:3007/api/open/v3/test/webhook",
+  webhookUrl: "",
+  speaker_num: 1,
 });
 
 const requestOptions = {
@@ -246,10 +249,9 @@ $body = '{
   "url": "https://drz0f01yeq1cx.cloudfront.net/1710470596011-facebook.mp4",
   "language": "hi",
   "source_language": "zh",
-  "face_enhance": true,
   "lipsync": true,
-  "merge_interval": 1,
-  "webhookUrl": "http://localhost:3007/api/open/v3/test/webhook"
+  "speaker_num": 1,
+  "webhookUrl": ""
 }';
 $request = new Request('POST', 'https://openapi.akool.com/api/open/v3/content/video/createbytranslate', $headers, $body);
 $res = $client->sendAsync($request)->wait();
@@ -266,10 +268,9 @@ payload = json.dumps({
   "url": "https://drz0f01yeq1cx.cloudfront.net/1710470596011-facebook.mp4",
   "language": "hi",
   "source_language": "zh",
-  "face_enhance": true,
   "lipsync": true,
-  "merge_interval": 1,
-  "webhookUrl": "http://localhost:3007/api/open/v3/test/webhook"
+  "speaker_num": 1,
+  "webhookUrl": ""
 })
 headers = {
   'Authorization': 'Bearer token',
@@ -287,34 +288,29 @@ print(response.text)
 
 ```json
 {
-  "code": 1000,
-  "msg": "OK",
-  "data": {
-    "create_time": 1710757900382,
-    "uid": 101690,
-    "type": 8,
-    "sub_type": 801,
-    "from": 2,
-    "target_video": "https://drz0f01yeq1cx.cloudfront.net/1710470596011-facebook.mp4",
-    "source_language": "zh",
-    "language": "hi",
-    "faceswap_quality": 2,
-    "video_id": "16db4826-e090-4169-861a-1de5de809a33",
-    "video_status": 1, // current status of video： 【1：queueing（The requested operation is being processed），2：processing（The requested operation is being processing），3：completed（The request operation has been processed successfully），4：failed（The request operation processing failed, the reason for the failure can be viewed in the video translation details.）】
-    "video_lock_duration": 11.7,
-    "deduction_lock_duration": 20,
-    "external_video": "",
-    "video": "https://drz0f01yeq1cx.cloudfront.net/1710487405274-252239be-3411-4084-9e84-bf92eb78fbba-2031.mp4", // the url of Generated video
-    "storage_loc": 1,
-    "webhookUrl": "http://localhost:3007/api/open/v3/test/webhook",
-    "task_id": "65f8180c4116596c1592edfb",
-    "target_video_md5": "64fd4b47695945e94f0181b2a2fe5bb1",
-    "pre_video_id": "",
-    "lipsync": true,
-    "lipSyncType": true,
-    "_id": "65f8180c24d9989e93dde3b6",
-    "__v": 0
-  }
+    "code": 1000,
+    "msg": "OK",
+    "data": {
+        "_id": "68ccee42e267570255824ab5",
+        "create_time": 1758260802773,
+        "uid": 101400,
+        "team_id": "6805fb69e92d9edc7ca0b409",
+        "target_video": "https://d11fbe263bhqij.cloudfront.net/agicontent/video/translate/cut3_content_create_EN_01.mp4",
+        "language": "zh",
+        "source_language": "en",
+        "video_id": "68ccee42f392598dae31999b",
+        "video_status": 1, // current status of video： 【1：queueing（The requested operation is being processed），2：processing（The requested operation is being processing），3：completed（The request operation has been processed successfully），4：failed（The request operation processing failed, the reason for the failure can be viewed in the video translation details.）】
+        "video_lock_duration": 16.44,
+        "deduction_lock_duration": 4,
+        "video": "",
+        "credentialId": "6823024be0c8e98471611c72",
+        "task_id": "68ccee42f392598dae31999b",
+        "target_video_md5": "md5_1758260802301",
+        "lipsync": false,
+        "lipSyncType": 0,
+        "speaker_num": 1,
+        "webhookUrl": ""
+    }
 }
 ```
 
@@ -328,13 +324,13 @@ GET https://openapi.akool.com/api/open/v3/content/video/infobymodelid?video_mode
 
 | **Parameter** | **Value**    | **Description**                                                                                                   |
 | ------------- | ------------ | ----------------------------------------------------------------------------------------------------------------- |
-| Authorization | Bearer token | Your API Key used for request authorization. You can get from https://openapi.akool.com/api/open/v3/getToken api. |
+| Authorization | Bearer `{token}` | Your API Key used for request authorization.[Get Token](/authentication/usage#get-the-token)|
 
 **Query Attributes**
 
 | **Parameter**  | **Type** | **Value** | **Description**                                                                                                                          |
 | -------------- | -------- | --------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
-| video_model_id | String   | NULL      | video db id: You can get it based on the `_id` field returned by https://openapi.akool.com/api/open/v3/content/video/createbytranslate . |
+| video_model_id | String   | NULL      | video db id: You can get it based on the `_id` field returned by [Create By Translate API](/ai-tools-suite/video-translation#create-video-translation) . |
 
 **Response Attributes**
 
